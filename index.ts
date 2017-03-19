@@ -11,10 +11,10 @@ export * from './src/pluginbus/plugin-bus';
 export * from './src/widget/widget-view';
 
 @NgModule()
-export class MirrorModule {
+export class MirrorPluginModule {
   public static forRoot(): ModuleWithProviders {
     return {
-      ngModule: MirrorModule,
+      ngModule: MirrorPluginModule,
       providers: [EventBus],
     };
   }
