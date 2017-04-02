@@ -27,7 +27,7 @@ module.exports = {
   },
 
   // require those dependencies but don't bundle them
-  externals: [/^\@angular\//, /^reflect-metadata/],
+  externals: [/^\@angular\//, /^reflect-metadata/, /^rxjs/],
 
   module: {
     rules: [{
