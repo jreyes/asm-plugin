@@ -35,6 +35,11 @@ export abstract class AbstractWidgetView implements OnInit, OnDestroy, WidgetVie
   }
 
   public set maximized(value: boolean) {
+    console.log('[widget-view] maximized ' + value);
+    if (value === this._maximized) {
+      return;
+    }
+
     this._maximized = value;
     if (this._maximized) {
       this.onMaximized();
