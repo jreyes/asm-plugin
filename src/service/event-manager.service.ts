@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 
 /**
- * An utily class to manage RX events
+ * An utility class to manage RX events
  */
 @Injectable()
 export class EventManager {
@@ -32,7 +32,7 @@ export class EventManager {
    * Method to subscribe to an event with callback
    */
   public subscribe(eventName: any, callback: any) {
-    return this.observable.filter((event: any) => {
+    return this.observable.filter((event) => {
       return event.name === eventName;
     }).subscribe(callback);
   }

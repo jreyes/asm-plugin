@@ -21,8 +21,7 @@ export class AlertService {
   private alerts: Alert[];
   private timeout: number;
 
-  constructor(private sanitizer: Sanitizer,
-              private toast?: boolean) {
+  constructor(private sanitizer: Sanitizer) {
     this.alertId = 0; // unique id for each alert. Starts from 0.
     this.alerts = [];
     this.timeout = 5000; // default timeout in milliseconds
@@ -36,46 +35,46 @@ export class AlertService {
     return this.alerts;
   }
 
-  public success(msg: string, params?: any, position?: string): Alert {
+  public success(msg: string, params?: any, position?: string, toast?: boolean): Alert {
     return this.addAlert({
       type: 'success',
       msg,
       params,
       timeout: this.timeout,
-      toast: this.toast,
+      toast,
       position
     }, []);
   }
 
-  public error(msg: string, params?: any, position?: string): Alert {
+  public error(msg: string, params?: any, position?: string, toast?: boolean): Alert {
     return this.addAlert({
       type: 'danger',
       msg,
       params,
       timeout: this.timeout,
-      toast: this.toast,
+      toast,
       position
     }, []);
   }
 
-  public warning(msg: string, params?: any, position?: string): Alert {
+  public warning(msg: string, params?: any, position?: string, toast?: boolean): Alert {
     return this.addAlert({
       type: 'warning',
       msg,
       params,
       timeout: this.timeout,
-      toast: this.toast,
+      toast,
       position
     }, []);
   }
 
-  public info(msg: string, params?: any, position?: string): Alert {
+  public info(msg: string, params?: any, position?: string, toast?: boolean): Alert {
     return this.addAlert({
       type: 'info',
       msg,
       params,
       timeout: this.timeout,
-      toast: this.toast,
+      toast,
       position
     }, []);
   }
@@ -98,10 +97,6 @@ export class AlertService {
 
   public closeAlertByIndex(index: number, thisAlerts: Alert[]): Alert[] {
     return thisAlerts.splice(index, 1);
-  }
-
-  public isToast(): boolean {
-    return this.toast;
   }
 
   private factory(alertOptions: Alert): Alert {
