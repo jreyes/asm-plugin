@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer, Subscription } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
+import { Subscription } from 'rxjs/Subscription';
+import 'rxjs/add/operator/filter';
 
 /**
  * An utily class to manage RX events
@@ -29,7 +32,7 @@ export class EventManager {
    * Method to subscribe to an event with callback
    */
   public subscribe(eventName: any, callback: any) {
-    return this.observable.filter((event) => {
+    return this.observable.filter((event: any) => {
       return event.name === eventName;
     }).subscribe(callback);
   }
